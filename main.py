@@ -107,7 +107,11 @@ if faculty_type != "Bitte auswählen":
                             "filter": [
                                 {"term": {"degree.keyword": degree_type}},
                                 {"term": {"faculty.keyword": faculty_type}},
-                                {"term": {"program.keyword": program_type}} if program_type else {}
+                                {"term": {"program.keyword": program_type}} 
+                            ] if program_type else [
+                                {"term": {"degree.keyword": degree_type}},
+                                {"term": {"faculty.keyword": faculty_type}}
+
                             ],
                             "must": [
                                 {
