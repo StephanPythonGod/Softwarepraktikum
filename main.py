@@ -33,7 +33,7 @@ response = client.search(index="slenert", body=query)
 faculty_types = ["Bitte auswählen"] + [bucket["key"] for bucket in response["aggregations"]["unique_faculties"]["buckets"]]
 
 # Select faculty type
-faculty_type = st.selectbox("Select Faculty Type", faculty_types)
+faculty_type = st.selectbox("Fakultät auswählen", faculty_types)
 
 if faculty_type != "Bitte auswählen":
     # Retrieve unique degree values for the selected faculty
@@ -57,7 +57,7 @@ if faculty_type != "Bitte auswählen":
     degree_types = ["Bitte auswählen"] + [bucket["key"] for bucket in response["aggregations"]["unique_degrees"]["buckets"]]
 
     # Select degree type
-    degree_type = st.selectbox("Select Degree Type", degree_types)
+    degree_type = st.selectbox("Art des Abschlusses auswählen", degree_types)
 
     if degree_type != "Bitte auswählen":
         # Retrieve unique program values for the selected faculty and degree
