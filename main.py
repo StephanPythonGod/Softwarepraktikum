@@ -87,7 +87,7 @@ if faculty_type != "Bitte auswählen":
         if len(program_types) > 1:
             program_type = st.selectbox("Bitte Programm auswählen", program_types)
         else:
-            program_type = ""
+            program_type = None
 
         if program_type != "Bitte auswählen":
             st.markdown("---")  # Add a visual divider
@@ -107,7 +107,7 @@ if faculty_type != "Bitte auswählen":
                             "filter": [
                                 {"term": {"degree.keyword": degree_type}},
                                 {"term": {"faculty.keyword": faculty_type}},
-                                {"term": {"program.keyword": program_type}}
+                                {"term": {"program.keyword": program_type}} if program_type else {}
                             ],
                             "must": [
                                 {
