@@ -86,6 +86,8 @@ if faculty_type != "Bitte auswählen":
         # Select program type
         if len(program_types) > 1:
             program_type = st.selectbox("Bitte Programm auswählen", program_types)
+        else:
+            program_type = None
 
         if program_type != "Bitte auswählen":
             st.markdown("---")  # Add a visual divider
